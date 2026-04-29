@@ -4,6 +4,7 @@
 {{ $notesEnabled  := site.Params.features.notes.enable  | default false }}
 {{ $notesTitle := site.Params.features.notes.title  | default (i18n "notes") }}
 {{ $maxVisibleSections   := site.Params.topNavbar.maxVisibleSections   | default 5 }}
+{{ $projectsPage := site.GetPage "section" "projects" }}
 
 {{/*  keep backward compatibility for blog post  */}}
 {{ if site.Params.enableBlogPost }}
@@ -141,6 +142,11 @@
         {{ if $notesEnabled }}
           <li class="nav-item">
             <a class="nav-link" id="note-link" href="{{ path.Join (site.BaseURL | relLangURL) "notes" }}">{{ $notesTitle }}</a>
+          </li>
+        {{ end }}
+        {{ if $projectsPage }}
+          <li class="nav-item">
+            <a class="nav-link" id="project-link" href="{{ $projectsPage.RelPermalink }}">{{ $projectsPage.LinkTitle | default $projectsPage.Title }}</a>
           </li>
         {{ end }}
         {{ range $customMenus }}

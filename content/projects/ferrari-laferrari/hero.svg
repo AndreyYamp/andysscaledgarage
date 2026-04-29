@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract automotive cover</title>
+  <desc id="desc">A minimal red and charcoal composition with sweeping lines inspired by a supercar profile.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="55%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <radialGradient id="glow" cx="68%" cy="28%" r="58%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.92" />
+      <stop offset="48%" stop-color="#dc2626" stop-opacity="0.48" />
+      <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fca5a5" stop-opacity="0" />
+      <stop offset="40%" stop-color="#fecaca" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#fca5a5" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <ellipse cx="1080" cy="210" rx="520" ry="320" fill="url(#glow)" />
+  <ellipse cx="320" cy="740" rx="420" ry="180" fill="#0b1220" fill-opacity="0.86" />
+
+  <path
+    d="M180 590C290 590 396 564 470 522C540 482 628 404 708 376C776 352 860 344 938 350C1006 356 1072 376 1132 412C1184 442 1248 470 1340 482"
+    fill="none"
+    stroke="url(#line)"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M336 624C430 620 536 612 650 594C782 574 894 546 1030 516C1104 500 1194 490 1324 492"
+    fill="none"
+    stroke="#fca5a5"
+    stroke-opacity="0.26"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <path
+    d="M444 676C572 672 680 664 790 648C938 626 1060 600 1210 560"
+    fill="none"
+    stroke="#f8fafc"
+    stroke-opacity="0.18"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+
+  <circle cx="508" cy="642" r="48" fill="none" stroke="#94a3b8" stroke-opacity="0.38" stroke-width="4" />
+  <circle cx="1128" cy="600" r="52" fill="none" stroke="#94a3b8" stroke-opacity="0.38" stroke-width="4" />
+
+  <path
+    d="M1092 250C1200 262 1310 316 1410 396"
+    fill="none"
+    stroke="#fee2e2"
+    stroke-opacity="0.22"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+</svg>

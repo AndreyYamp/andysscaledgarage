@@ -1,0 +1,60 @@
+{{ define "header" }}
+<meta
+  name="description"
+  content="{{ with .Description }}{{ . | plainify }}{{ else with .Params.summary }}{{ . | plainify }}{{ else }}{{ .Title | plainify }}{{ end }}"
+/>
+{{ end }}
+
+{{ define "navbar" }}
+{{ partial "navigators/navbar.html" . }}
+{{ end }}
+
+{{ define "content" }}
+{{ $hero := partial "helpers/get-hero.html" (dict "context" . "width" "1800x") }}
+<section class="content-section project-content-section" id="content-section">
+  <article class="project-page">
+    <header class="project-page__hero">
+      <div
+        class="project-page__hero-media"
+        {{ with $hero }}style='background-image: url({{ .RelPermalink }});'{{ end }}
+      >
+        <div class="project-page__hero-shade"></div>
+        <div class="project-page__hero-copy">
+          {{ with .Params.kicker }}
+          <p class="project-page__kicker">{{ . }}</p>
+          {{ end }}
+          <h1>{{ .Title }}</h1>
+          {{ with .Params.summary }}
+          <p class="project-page__summary">{{ . }}</p>
+          {{ end }}
+          {{ with .Params.facts }}
+          <dl class="project-page__facts">
+            {{ range . }}
+            <div>
+              <dt>{{ .label }}</dt>
+              <dd>{{ .value }}</dd>
+            </div>
+            {{ end }}
+          </dl>
+          {{ end }}
+          {{ with .Params.tags }}
+          <ul class="project-page__tags">
+            {{ range . }}
+            <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </div>
+    </header>
+
+    <div class="project-page__content-wrap">
+      <div class="project-page__body">
+        <div class="project-page__content">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+{{ end }}

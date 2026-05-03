@@ -5,16 +5,9 @@
 <section class="container-fluid home-journal" id="home">
   <div class="home-journal__shell">
     <div class="home-journal__masthead">
-      <div class="home-journal__intro">
-        {{ with $homeJournal.eyebrow }}
-        <p class="home-journal__eyebrow">{{ . }}</p>
-        {{ end }}
-        {{ with $homeJournal.title }}
-        <h1>{{ . }}</h1>
-        {{ end }}
-        {{ with $homeJournal.intro }}
-        <p class="home-journal__copy">{{ . }}</p>
-        {{ end }}
+      <div class="home-journal__section-title">
+        <h1>{{ $homeJournal.sectionLabel | default "Featured Projects" }}</h1>
+        <span class="home-journal__section-line"></span>
       </div>
       {{ with $projectsPage }}
       <a class="home-journal__archive-link" href="{{ .RelPermalink }}">

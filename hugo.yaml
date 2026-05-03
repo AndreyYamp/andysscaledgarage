@@ -37,8 +37,6 @@ params:
   features:
     homeJournal:
       enable: true
-      eyebrow: Scale Model Journal
-      title: Featured builds arranged like a quiet magazine spread.
-      intro: Ferrari leads the front page for now, with a few more project stories waiting in the garage.
+      sectionLabel: Featured Projects
       archiveLabel: Browse the full project archive
       featuredLabel: Featured Project

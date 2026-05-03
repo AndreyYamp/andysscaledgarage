@@ -5,6 +5,8 @@
 {{ $notesTitle := site.Params.features.notes.title  | default (i18n "notes") }}
 {{ $maxVisibleSections   := site.Params.topNavbar.maxVisibleSections   | default 5 }}
 {{ $projectsPage := site.GetPage "section" "projects" }}
+{{ $journalHomeEnabled := site.Params.features.homeJournal.enable | default false }}
+{{ $useTransparentNavbar := and .IsHome (not $journalHomeEnabled) }}
 
 {{/*  keep backward compatibility for blog post  */}}
 {{ if site.Params.enableBlogPost }}
@@ -72,7 +74,7 @@
   {{ $navBarTitle = site.Title }}
 {{ end }}
 
-<nav class="navbar navbar-expand-xl top-navbar shadow {{ if .IsHome}}transparent-navbar homepage{{end}}" id="top-navbar">
+<nav class="navbar navbar-expand-xl top-navbar shadow {{ if $useTransparentNavbar }}transparent-navbar homepage{{end}}" id="top-navbar">
   <div class="container">
     {{ if not .IsHome }}
     <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
@@ -86,7 +88,7 @@
       {{- $navBarTitle -}}
     </a>
     <button
-      class="navbar-toggler {{if .IsHome}}navbar-dark{{else}}navbar-light{{end}}"
+      class="navbar-toggler {{if $useTransparentNavbar}}navbar-dark{{else}}navbar-light{{end}}"
       id="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"

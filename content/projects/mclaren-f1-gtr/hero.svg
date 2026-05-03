@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract McLaren GTR cover</title>
+  <desc id="desc">A minimal orange and graphite composition suggesting a low race car under studio light.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="24%" r="48%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.9" />
+      <stop offset="56%" stop-color="#f97316" stop-opacity="0.36" />
+      <stop offset="100%" stop-color="#7c2d12" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <ellipse cx="1140" cy="200" rx="400" ry="220" fill="url(#glow)" />
+  <ellipse cx="280" cy="732" rx="360" ry="160" fill="#020617" fill-opacity="0.82" />
+
+  <path
+    d="M154 608C280 608 380 592 472 556C566 520 652 436 744 394C840 350 934 340 1030 350C1136 362 1248 402 1384 486"
+    fill="none"
+    stroke="#fdba74"
+    stroke-opacity="0.92"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M310 660C458 656 616 644 760 620C932 592 1096 560 1292 494"
+    fill="none"
+    stroke="#fed7aa"
+    stroke-opacity="0.24"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <circle cx="510" cy="646" r="50" fill="none" stroke="#94a3b8" stroke-opacity="0.34" stroke-width="4" />
+  <circle cx="1124" cy="602" r="54" fill="none" stroke="#94a3b8" stroke-opacity="0.34" stroke-width="4" />
+</svg>

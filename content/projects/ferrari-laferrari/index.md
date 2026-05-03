@@ -4,6 +4,7 @@ date: 2026-04-29
 description: A calm, photo-led build journal for the Ferrari LaFerrari, from surface preparation through final detailing.
 summary: A quiet build journal for Ferrari's hybrid halo car, moving from clean surface work to a restrained final gallery.
 kicker: Project Journal
+homeFeatured: true
 tags:
   - ferrari
   - hypercar

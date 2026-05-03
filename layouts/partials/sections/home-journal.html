@@ -1,0 +1,107 @@
+{{ $homeJournal := site.Params.features.homeJournal }}
+{{ $projectsPage := site.GetPage "section" "projects" }}
+{{ $projects := (where site.RegularPages "Type" "projects").ByDate.Reverse }}
+
+<section class="container-fluid home-journal" id="home">
+  <div class="home-journal__shell">
+    <div class="home-journal__masthead">
+      <div class="home-journal__intro">
+        {{ with $homeJournal.eyebrow }}
+        <p class="home-journal__eyebrow">{{ . }}</p>
+        {{ end }}
+        {{ with $homeJournal.title }}
+        <h1>{{ . }}</h1>
+        {{ end }}
+        {{ with $homeJournal.intro }}
+        <p class="home-journal__copy">{{ . }}</p>
+        {{ end }}
+      </div>
+      {{ with $projectsPage }}
+      <a class="home-journal__archive-link" href="{{ .RelPermalink }}">
+        {{ $homeJournal.archiveLabel | default (.LinkTitle | default .Title) }}
+      </a>
+      {{ end }}
+    </div>
+
+    {{ if gt (len $projects) 0 }}
+      {{ $featuredCandidates := where $projects "Params.homeFeatured" true }}
+      {{ $featuredProject := index $projects 0 }}
+      {{ if gt (len $featuredCandidates) 0 }}
+        {{ $featuredProject = index $featuredCandidates 0 }}
+      {{ end }}
+      {{ $supportingProjects := where $projects "RelPermalink" "ne" $featuredProject.RelPermalink }}
+      {{ $featuredHero := partial "helpers/get-hero.html" (dict "context" $featuredProject "width" "1800x") }}
+
+      <div class="home-journal__lead-grid">
+        <article class="home-project-card home-project-card--featured">
+          <a href="{{ $featuredProject.RelPermalink }}">
+            <div
+              class="home-project-card__image home-project-card__image--featured"
+              {{ with $featuredHero }}style='background-image: url({{ .RelPermalink }});'{{ end }}
+            >
+              <div class="home-project-card__overlay"></div>
+              <div class="home-project-card__content">
+                {{ with ($featuredProject.Params.homeBadge | default $featuredProject.Params.kicker | default $homeJournal.featuredLabel) }}
+                <p class="home-project-card__badge">{{ . }}</p>
+                {{ end }}
+                <h2>{{ $featuredProject.Title }}</h2>
+                {{ with ($featuredProject.Params.homeSummary | default $featuredProject.Params.summary) }}
+                <p class="home-project-card__summary">{{ . }}</p>
+                {{ end }}
+              </div>
+            </div>
+          </a>
+        </article>
+
+        <div class="home-journal__supporting">
+          {{ range first 2 $supportingProjects }}
+            {{ $cardHero := partial "helpers/get-hero.html" (dict "context" . "width" "1200x") }}
+            <article class="home-project-card home-project-card--supporting">
+              <a href="{{ .RelPermalink }}">
+                <div
+                  class="home-project-card__image home-project-card__image--supporting"
+                  {{ with $cardHero }}style='background-image: url({{ .RelPermalink }});'{{ end }}
+                ></div>
+                <div class="home-project-card__text">
+                  {{ with (.Params.homeBadge | default .Params.kicker) }}
+                  <p class="home-project-card__badge">{{ . }}</p>
+                  {{ end }}
+                  <h3>{{ .Title }}</h3>
+                  {{ with (.Params.homeSummary | default .Params.summary) }}
+                  <p>{{ . }}</p>
+                  {{ end }}
+                </div>
+              </a>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+
+      {{ $moreProjects := after 2 $supportingProjects }}
+      {{ if gt (len $moreProjects) 0 }}
+      <div class="home-journal__secondary-grid">
+        {{ range $moreProjects }}
+          {{ $cardHero := partial "helpers/get-hero.html" (dict "context" . "width" "1200x") }}
+          <article class="home-project-card home-project-card--compact">
+            <a href="{{ .RelPermalink }}">
+              <div
+                class="home-project-card__image home-project-card__image--compact"
+                {{ with $cardHero }}style='background-image: url({{ .RelPermalink }});'{{ end }}
+              ></div>
+              <div class="home-project-card__text">
+                {{ with (.Params.homeBadge | default .Params.kicker) }}
+                <p class="home-project-card__badge">{{ . }}</p>
+                {{ end }}
+                <h3>{{ .Title }}</h3>
+                {{ with (.Params.homeSummary | default .Params.summary) }}
+                <p>{{ . }}</p>
+                {{ end }}
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>
